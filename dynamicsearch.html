@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Harmonic Oscillator</title>
+<style>
+    #oscillator {
+        width: 600px;
+        height: 300px;
+        border: 1px solid black;
+        position: relative;
+    }
+    #mass {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        position: absolute;
+        border-radius: 50%;
+    }
+</style>
+</head>
+<body>
+<div id="oscillator">
+    <div id="mass"></div>
+</div>
+
+<script>
+    // Parameters
+    const m = 1.0;  // Mass
+    const k = 1.0;  // Spring constant
+    const gamma = 0.1;  // Damping coefficient
+    const dt = 0.1;  // Time step
+    const amplitude = 100;  // Amplitude of oscillation
+
+    // Initial conditions
+    let x = amplitude;  // Initial displacement
+    let v = 0;  // Initial velocity
+
+    // Animation loop
+    function animate() {
+        const oscillator = document.getElementById('oscillator');
+        const mass = document.getElementById('mass');
+
+        // Update position
+        x += v * dt;
+        v += acceleration(x, v) * dt;
+
+        // Update mass position
+        mass.style.left = x + 'px';
+
+        // Animation loop
+        requestAnimationFrame(animate);
+    }
+
+    // Function to calculate acceleration
+    function acceleration(x, v) {
+        return (-k * x - gamma * v) / m;
+    }
+
+    // Start animation
+    animate();
+</script>
+</body>
+</html>
