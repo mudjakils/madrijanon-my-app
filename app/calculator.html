@@ -15,45 +15,38 @@
             align-items: center;
             height: 100vh;
         }
+
+        /* Improved Calculator Styles */
+        form {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        input {
+            grid-column: span 4;
+            padding: 10px;
+            font-size: 18px;
+            text-align: right;
+        }
+
+        button {
+            padding: 15px;
+            font-size: 18px;
+            border: 1px solid #3498db; /* Blue color */
+            background-color: #3498db;
+            color: #fff; /* White text */
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2980b9; /* Darker blue on hover */
+        }
     </style>
 </head>
-
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">IT35</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-  </nav>
 <body>
     <div class="calculator-container">
         <div>
@@ -61,25 +54,20 @@
 
             <form name="calculator">
                 <input type="text" name="display" id="display" readonly>
-                <br>
-
                 <button type="button" onclick="appendValue('1')">1</button>
                 <button type="button" onclick="appendValue('2')">2</button>
                 <button type="button" onclick="appendValue('3')">3</button>
                 <button type="button" onclick="appendValue('+')">+</button>
-                <br>
 
                 <button type="button" onclick="appendValue('4')">4</button>
                 <button type="button" onclick="appendValue('5')">5</button>
                 <button type="button" onclick="appendValue('6')">6</button>
                 <button type="button" onclick="appendValue('-')">-</button>
-                <br>
 
                 <button type="button" onclick="appendValue('7')">7</button>
                 <button type="button" onclick="appendValue('8')">8</button>
                 <button type="button" onclick="appendValue('9')">9</button>
                 <button type="button" onclick="appendValue('*')">*</button>
-                <br>
 
                 <button type="button" onclick="appendValue('0')">0</button>
                 <button type="button" onclick="clearDisplay()">C</button>
